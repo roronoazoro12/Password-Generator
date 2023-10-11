@@ -1,25 +1,20 @@
-const int = "0123456789";
-const char = "abcdefghijklmnopqrstuvwxyz";
-const cap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const special = "@#$&*";
-this.pass = "";
+const generateStrongPassword = () => {
+   const allChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#$&*!%^";
+   const passwordLength = 10; // Increase the length to your desired value.
 
-const randomfun  = (len) => {
- if(len<4){
-    console.log("Invalid");
- }
- else{
-    let i=0;
-    while(i<len){
-    this.pass += int[Math.floor(Math.random()*int.length)];
-    this.pass += char[Math.floor(Math.random()*char.length)];
-    this.pass += special[Math.floor(Math.random()*special.length)];
-    this.pass += cap[Math.floor(Math.random()*cap.length)];
-    i=i+4;
- }
-}
- return this.pass;
+   let password = "";
+
+   for (let i = 0; i < passwordLength; i++) {
+       const randomIndex = Math.floor(Math.random() * allChars.length);
+       password += allChars[randomIndex];
+   }
+
+   return password;
 }
 
-const generatedpass=randomfun(9);
-console.log(generatedpass);
+document.getElementById("generate").onclick=function() {
+   for(let i=0;i<10;i++){
+   const generatedPassword = generateStrongPassword();
+   alert("Generated Password: " + generatedPassword);
+};
+}

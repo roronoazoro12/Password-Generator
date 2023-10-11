@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    background-color: rgb(160, 160, 160);
+}
+.heading{
+    text-align: center;
+}
+.generate{
+    width: 75px;
+    text-align: center;
+}
